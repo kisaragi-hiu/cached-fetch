@@ -15,7 +15,7 @@
   "author": "Kisaragi Hiu <mail@kisaragi-hiu.com>",
   "license": "MIT",
   "files": ["index.ts"],
-  "exports": "index.ts",
+  "exports": "./index.ts",
   "devDependencies": {
     "@types/node": "^24.3.0"
   }
