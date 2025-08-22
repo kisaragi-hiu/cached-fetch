@@ -15,9 +15,8 @@ export async function cached(
   /**
    * A fetcher function, called when the value isn't cached.
    *
-   * Should return a promise, which resolves to an object whose text key is a
-   * Promise<string> --- usually a Response, but the ProcessPromise from the
-   * zx library are also supported.
+   * Should return a Promise<{ text: () => Promise<string> }>. This is usually a
+   * Response, but the ProcessPromise from the zx library also fits this signature.
    */
   fetcher: () => Promise<{ text: () => Promise<string> }>
 ) {
