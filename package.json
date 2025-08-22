@@ -14,9 +14,12 @@
   "homepage": "https://github.com/kisaragi-hiu/cached-fetch",
   "author": "Kisaragi Hiu <mail@kisaragi-hiu.com>",
   "license": "MIT",
-  "files": ["index.ts"],
-  "exports": "./index.ts",
+  "files": ["index.js"],
   "devDependencies": {
-    "@types/node": "^24.3.0"
+    "@types/node": "^24.3.0",
+    "typescript": "^5.9.2"
+  },
+  "scripts": {
+    "build": "tsc index.ts -d -t esnext -m nodenext"
   }
 }
