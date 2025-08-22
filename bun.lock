@@ -4,14 +4,11 @@
     "": {
       "name": "@kisaragi-hiu/cached-fetch",
       "devDependencies": {
-        "@types/node": "^24.3.0",
         "@typescript/native-preview": "^7.0.0-dev.20250822.1",
       },
     },
   },
   "packages": {
-    "@types/node": ["@types/node@24.3.0", "", { "dependencies": { "undici-types": "~7.10.0" } }, "sha512-aPTXCrfwnDLj4VvXrm+UUCQjNEvJgNA8s5F1cvwQU+3KNltTOkBm1j30uNLyqqPNe7gE3KFzImYoZEfLhp4Yow=="],
-
     "@typescript/native-preview": ["@typescript/native-preview@7.0.0-dev.20250822.1", "", { "optionalDependencies": { "@typescript/native-preview-darwin-arm64": "7.0.0-dev.20250822.1", "@typescript/native-preview-darwin-x64": "7.0.0-dev.20250822.1", "@typescript/native-preview-linux-arm": "7.0.0-dev.20250822.1", "@typescript/native-preview-linux-arm64": "7.0.0-dev.20250822.1", "@typescript/native-preview-linux-x64": "7.0.0-dev.20250822.1", "@typescript/native-preview-win32-arm64": "7.0.0-dev.20250822.1", "@typescript/native-preview-win32-x64": "7.0.0-dev.20250822.1" }, "bin": { "tsgo": "bin/tsgo.js" } }, "sha512-4PJqQCnAlZj3LChMcdN7HTBeYckZVPnSdVP8lKKEBalYgGjh6O2wvjYLTwCoSHMKhHiKpKJPz/PtQA31g2W+nQ=="],
 
     "@typescript/native-preview-darwin-arm64": ["@typescript/native-preview-darwin-arm64@7.0.0-dev.20250822.1", "", { "os": "darwin", "cpu": "arm64" }, "sha512-YPx/cOs251PSF5WQhHtr0e525CrIxJLv5ymNrMXgzHzLkqHzF9oYRwa+CDejvjFgnoAV04MQqHjm3z2cu2CH1Q=="],
@@ -27,7 +24,5 @@
     "@typescript/native-preview-win32-arm64": ["@typescript/native-preview-win32-arm64@7.0.0-dev.20250822.1", "", { "os": "win32", "cpu": "arm64" }, "sha512-eoeU9Vk3NCEnD6VeN03Bl5g1ZvDImLk7xkkYH7jFdkNdam/+vpn8EDyOeduvmBjFtqGqObNUcf3XD9fnHhrzyg=="],
 
     "@typescript/native-preview-win32-x64": ["@typescript/native-preview-win32-x64@7.0.0-dev.20250822.1", "", { "os": "win32", "cpu": "x64" }, "sha512-Rs2tW1FkiownVDql/V+BJKrwabbsH7K9yFsDzU9Grpaac8z4uwuDaalBdfL9kbhS975Fj3E0dbIs/mK4afEM9g=="],
-
-    "undici-types": ["undici-types@7.10.0", "", {}, "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="],
   }
 }

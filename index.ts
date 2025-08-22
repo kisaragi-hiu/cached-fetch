@@ -1,3 +1,4 @@
+// -*- lsp-disabled-clients: (ts-ls); -*-
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { tmpdir } from "node:os";
