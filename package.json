@@ -17,9 +17,9 @@
   "files": ["index.js"],
   "devDependencies": {
     "@types/node": "^24.3.0",
-    "typescript": "^5.9.2"
+    "@typescript/native-preview": "^7.0.0-dev.20250822.1"
   },
   "scripts": {
-    "build": "tsc index.ts -d -t esnext -m nodenext"
+    "build": "tsgo index.ts -d -t esnext -m nodenext"
   }
 }
