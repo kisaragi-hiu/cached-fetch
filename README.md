@@ -1,6 +1,6 @@
 # @kisaragi-hiu/cached-fetch
 
-A cacheing function designed for cacheing fetch GET responses on disk in a command line program.
+A caching function designed for caching fetch GET responses on disk in a command line program.
 
 I keep rewriting this logic in multiple projects, so I'm making it a package.
 
