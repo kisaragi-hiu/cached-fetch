@@ -1,0 +1,18 @@
+{
+  "name": "@kisaragi-hiu/cached-fetch",
+  "version": "0.0.0",
+  "description": "A cache in OS tmpdir useful for fetch()",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kisaragi-hiu/cached-fetch.git"
+  },
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://www.buymeacoffee.com/kisaragihiu"
+  },
+  "homepage": "https://github.com/kisaragi-hiu/cached-fetch",
+  "author": "Kisaragi Hiu <mail@kisaragi-hiu.com>",
+  "license": "MIT",
+  "files": ["index.ts"]
+}
