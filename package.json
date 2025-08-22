@@ -1,6 +1,6 @@
 {
   "name": "@kisaragi-hiu/cached-fetch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A cache in OS tmpdir useful for fetch()",
   "type": "module",
   "repository": {
