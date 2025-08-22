@@ -29,4 +29,5 @@ export async function cached(
     mkdirSync(dirname(cacheFile), { recursive: true });
     writeFileSync(cacheFile, text, { encoding: "utf-8" });
   }
+  return text;
 }
