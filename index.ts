@@ -14,10 +14,11 @@ export async function cached(
   /**
    * A fetcher function, called when the value isn't cached.
    *
-   * Should return a Promise<{ text: () => Promise<string> }>. This is usually a
-   * Response, but the ProcessPromise from the zx library also fits this signature.
+   * Should return a Promise<{ text: () => string | Promise<string> }>. This is
+   * usually a Response, but ProcessOutput from the zx library also fits
+   * this signature.
    */
-  fetcher: () => Promise<{ text: () => Promise<string> }>
+  fetcher: () => Promise<{ text: () => string | Promise<string> }>
 ): Promise<string> {
   const cacheFile = join(tmpdir(), key);
   const cacheHit = existsSync(cacheFile);
