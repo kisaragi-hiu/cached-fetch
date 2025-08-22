@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 /**
  * A cache designed to cache some text.
  */
-export async function cachedFetch(
+export async function cached(
   /**
    * The key of the value.
    * Subsequent calls with the same key will return the cached value.
