@@ -18,7 +18,7 @@ export async function cached(
    * Response, but the ProcessPromise from the zx library also fits this signature.
    */
   fetcher: () => Promise<{ text: () => Promise<string> }>
-) {
+): Promise<string> {
   const cacheFile = join(tmpdir(), key);
   const cacheHit = existsSync(cacheFile);
   const text = cacheHit
