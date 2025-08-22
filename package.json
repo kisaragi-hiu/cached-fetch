@@ -14,5 +14,8 @@
   "homepage": "https://github.com/kisaragi-hiu/cached-fetch",
   "author": "Kisaragi Hiu <mail@kisaragi-hiu.com>",
   "license": "MIT",
-  "files": ["index.ts"]
+  "files": ["index.ts"],
+  "devDependencies": {
+    "@types/node": "^24.3.0"
+  }
 }
