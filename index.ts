@@ -3,8 +3,22 @@ import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { tmpdir } from "node:os";
 
+/**
+ * A cache designed to cache some text.
+ */
 export async function cachedFetch(
+  /**
+   * The key of the value.
+   * Subsequent calls with the same key will return the cached value.
+   */
   key: string,
+  /**
+   * A fetcher function, called when the value isn't cached.
+   *
+   * Should return a promise, which resolves to an object whose text key is a
+   * Promise<string> --- usually a Response, but the ProcessPromise from the
+   * zx library are also supported.
+   */
   fetcher: () => Promise<{ text: () => Promise<string> }>
 ) {
   const cacheFile = join(tmpdir(), key);
