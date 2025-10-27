@@ -15,17 +15,25 @@ export async function cached(
   /**
    * A fetcher function, called when the value isn't cached.
    *
-   * Should return a Promise<{ text: () => string | Promise<string> }>. This is
-   * usually a Response, but ProcessOutput from the zx library also fits
-   * this signature.
+   * This can return a string or a Promise<string>.
+   *
+   * This can also return a Promise<{ text: () => string | Promise<string> }>.
+   * This means a Response or zx's ProcessOutput can be used directly.
    */
-  fetcher: () => Promise<{ text: () => string | Promise<string> }>
+  fetcher: () =>
+    | string
+    | Promise<string>
+    | Promise<{ text: () => string | Promise<string> }>,
 ): Promise<string> {
   const cacheFile = join(tmpdir(), key);
   const cacheHit = existsSync(cacheFile);
-  const text = cacheHit
-    ? readFileSync(cacheFile, { encoding: "utf-8" })
-    : await (await fetcher()).text();
+  let text: string;
+  if (cacheHit) {
+    text = readFileSync(cacheFile, { encoding: "utf-8" });
+  } else {
+    const result = await fetcher();
+    text = typeof result === "string" ? result : await result.text();
+  }
   if (!cacheHit) {
     mkdirSync(dirname(cacheFile), { recursive: true });
     writeFileSync(cacheFile, text, { encoding: "utf-8" });
