@@ -16,11 +16,9 @@
   "license": "MIT",
   "files": ["index.js", "index.d.ts"],
   "devDependencies": {
-    "@typescript/native-preview": "^7.0.0-dev.20250822.1",
-    "vitest": "^4.0.6"
+    "@typescript/native-preview": "^7.0.0-dev.20250822.1"
   },
   "scripts": {
-    "test": "vitest run",
     "build": "tsgo index.ts --noCheck -d -t esnext -m nodenext"
   }
 }
