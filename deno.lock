@@ -4,6 +4,7 @@
     "jsr:@std/assert@*": "1.0.15",
     "jsr:@std/internal@^1.0.12": "1.0.12",
     "npm:@types/node@*": "24.2.0",
+    "npm:@typescript/native-preview@7.0.0-dev.20250822.1": "7.0.0-dev.20250822.1",
     "npm:@typescript/native-preview@^7.0.0-dev.20250822.1": "7.0.0-dev.20250822.1",
     "npm:zx@*": "8.8.5"
   },
