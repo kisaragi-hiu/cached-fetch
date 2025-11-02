@@ -17,34 +17,29 @@ const text = await cached(
 
 This persists the text response in `os.tmpdir` and should stay around until the next reboot.
 
+Signature: `cached(key, fetcher)`
+
 Arguments:
 
-```typescript
-/**
- * The key of the value.
- * Subsequent calls with the same key will return the cached value.
- */
-key: string,
-/**
- * A fetcher function, called when the value isn't cached.
- *
- * Should return a promise, which resolves to an object whose text key is a
- * Promise<string> --- usually a Response, but the ProcessPromise from the
- * zx library are also supported.
- */
-fetcher: () => Promise<{ text: () => Promise<string> }>
-```
+- `key`: the key of the value. Subsequent calls with the same key will return the cached value.
+- `fetcher`: a function doing work that should be cached. This should return any of these:
+  - `Promise<{text: () => string | Promise<string>}`, a promise of an object whose “text” property is a function returning a string or a promise of a string.
+    
+    This covers both a `Promise<Response>` from `fetch`, and also `ProcessPromise` from `zx`. So this works:
+    
+    ```typescript
+    const value = await cached("key1", () => fetch("https://example.com"))
 
-## Bonus usage
+    import {$} from "zx"
+    const output = await cached("key2", () => $`sleep 1 && echo "slow process demo"`)
+    ```
 
-This also works:
+  - a `Promise<string>`
 
-```typescript
-import { $ } from "zx";
-import { cached } from "@kisaragi-hiu/cached-fetch";
-
-const text = await cached(
-  "myCacheKey",
-  () => $`sleep 1 && echo "demo for a slow process"`
-)
-```
+  - a string. In this case the whole call is sync.
+  
+    ```typescript
+    const output = cached("key4", () =>
+      spawnSync("ls", { stdio: "pipe", encoding: "utf-8" }).stdout,
+    );
+    ```
