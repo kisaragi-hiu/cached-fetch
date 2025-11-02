@@ -1,14 +1,12 @@
-name: Publish
+name: Test
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 jobs:
-  publish:
+  test:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v2
@@ -24,11 +22,3 @@ jobs:
       - name: Test
         run: |
           deno run test
-      - name: Build
-        run: |
-          deno run build
-      - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm publish --provenance --access public
