@@ -1,5 +1,6 @@
 {
   "lint": {
     "rules": { "exclude": ["no-unversioned-import", "no-import-prefix"] }
-  }
+  },
+  "nodeModulesDir": "auto"
 }
