@@ -1,5 +1,5 @@
 // -*- lsp-disabled-clients: (ts-ls); -*-
-import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
+import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { tmpdir } from "node:os";
 
@@ -33,7 +33,6 @@ export function cached(
     | Promise<{ text: () => string | Promise<string> }>,
 ): string | Promise<string> {
   const cacheFile = join(tmpdir(), key);
-  const cacheHit = existsSync(cacheFile);
 
   function saveCache(text: string) {
     mkdirSync(dirname(cacheFile), { recursive: true });
@@ -41,14 +40,19 @@ export function cached(
     return text;
   }
 
-  if (cacheHit) return readFileSync(cacheFile, { encoding: "utf-8" });
-
-  const result = fetcher();
-  if (typeof result === "string") {
-    return saveCache(result);
-  } else {
-    return result.then(async (v) => {
-      return saveCache(typeof v === "string" ? v : await v.text());
-    });
+  try {
+    return readFileSync(cacheFile, { encoding: "utf-8" });
+  } catch (e: unknown) {
+    if ((e as { code?: string }).code !== "ENOENT") {
+      throw e;
+    }
+    const result = fetcher();
+    if (typeof result === "string") {
+      return saveCache(result);
+    } else {
+      return result.then(async (v) => {
+        return saveCache(typeof v === "string" ? v : await v.text());
+      });
+    }
   }
 }
