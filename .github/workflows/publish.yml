@@ -12,17 +12,17 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - uses: denoland/setup-deno@v2
         with:
-          bun-version: latest
+          deno-version: v2.x
       - uses: actions/setup-node@v4
         with:
           node-version: 22.x
           registry-url: "https://registry.npmjs.org"
       - name: Build
         run: |
-          bun install
-          bun run build
+          deno install
+          deno run build
       - name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

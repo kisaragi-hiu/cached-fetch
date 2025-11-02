@@ -19,6 +19,7 @@
     "@typescript/native-preview": "^7.0.0-dev.20250822.1"
   },
   "scripts": {
+    "test": "deno test -A",
     "build": "tsgo index.ts --noCheck -d -t esnext -m nodenext"
   }
 }

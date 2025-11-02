@@ -11,10 +11,10 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
+      - uses: denoland/setup-deno@v2
         with:
-          bun-version: latest
+          deno-version: v2.x
       - name: Test
         run: |
-          bun install
-          bun test
+          deno install
+          deno run test
