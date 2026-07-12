@@ -15,6 +15,8 @@
   "author": "Kisaragi Hiu <mail@kisaragi-hiu.com>",
   "license": "MIT",
   "files": ["index.js", "index.d.ts"],
+  "main": "index.js",
+  "types": "index.d.ts",
   "devDependencies": {
     "@typescript/native-preview": "^7.0.0-dev.20250822.1"
   },
